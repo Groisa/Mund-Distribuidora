@@ -1,0 +1,57 @@
+/* reset */
+body {
+    padding: 0px;
+    margin: 0;
+}
+/* add gradiante */
+body {
+    background-repeat: no-repeat;
+    background-image: linear-gradient(192deg, rgba(239,202,71,1) 0%, 
+    rgba(85,194,18,1) 22%, rgba(8,255,224,1) 81%); 
+    height: 100vh;  
+    
+}
+/* Header */
+.ContainerShaHome {
+    border: 0.5px solid #000000;
+    box-sizing: border-box;
+    border-radius: 16px;
+    width: 56px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#Header {
+    align-items: center;
+}
+.HeaderDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem;
+}
+
+.HeaderDiv  .Logo{
+    align-items: center;
+    margin-left: 5%;
+}
+.ImagemMund {
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .HeaderDiv {
+        width: 700px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.2rem;
+    }
+    #Header {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
