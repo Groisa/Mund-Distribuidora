@@ -12,46 +12,63 @@ body {
     
 }
 /* Header */
+
 .ContainerShaHome {
     border: 0.5px solid #000000;
     box-sizing: border-box;
-    border-radius: 16px;
-    width: 56px;
+    border-radius: 1rem;
+    width: 87px;
     height: 32px;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-
-#Header {
+.NavDivContainer {
+    display: flex;  
     align-items: center;
 }
-.HeaderDiv {
+.NavDivContainer span {
+    font-size: 25px ;
+    margin-left: 1rem;
+}
+.InputPesqHeader {
+    width: 301px;
+    height: 50px;
+    color: #EBDBA2;
+    opacity: 51%;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    color: black;
+}
+.ImgTipoGraf{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.2rem;
+    justify-content: center;
+    padding-top: 2rem;
+}
+.ImgTipoGraf img {
+    margin-left: -4% ;
+}
+/* resets React Bootstrap */
+.offcanvas, .offcanvas-end, .show{
+    background-repeat: no-repeat;
+    background-image: linear-gradient(192deg, rgba(239,202,71,1) 0%, 
+    rgba(85,194,18,1) 22%, rgba(8,255,224,1) 81%); 
+    height: 100vh;  
+}´
+.justify-content-end .flex-grow-1 .pe-3 .navbar-nav{
+    text-decoration: none;
+}
+.nav-link{
+    color: black;
+}
+#basic-navbar-nav{
+    display: flex;
+    justify-content: space-around;
+}
+.navbar-toggler ,.collapsed{
+    border: none;
 }
 
-.HeaderDiv  .Logo{
-    align-items: center;
-    margin-left: 5%;
-}
-.ImagemMund {
-    text-align: center;
-}
-@media (min-width: 768px) {
-    .HeaderDiv {
-        width: 700px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1.2rem;
-    }
-    #Header {
-        display: flex;
-        justify-content: center;
-    }
-}
+
 
 
