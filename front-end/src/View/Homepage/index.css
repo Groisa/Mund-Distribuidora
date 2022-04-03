@@ -1,0 +1,83 @@
+.CenterAlign {
+    margin: 0 auto;
+}
+
+.ImgTipoGraf{
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+}
+
+.Divh1 {
+    text-align: center;
+}
+.itensTitle {
+    padding-top: 2rem ;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.itensTitlePrimary {
+    padding-top: 4rem ;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.Cardgroup{
+    display: flex;
+    overflow: auto;
+    white-space: nowrap;
+    margin: 10px;
+}
+.CardComponents {
+    display: flex;
+    margin: .6rem;
+    flex-direction: column;
+    align-items: center;
+    width: 7rem;
+    height: 7.375rem;
+    background: #EFCA47;
+    border-radius: 0px 0 0.625rem 0.625rem; 
+}
+.CardComponents img {
+    padding-top: 0.2rem;
+    padding-bottom: .6rem;
+    width: 72px;
+}
+.CardSpanComponent {  
+    text-align: center;
+    background: #e9b600;
+    width: 6.5rem;
+    height: 26px;
+    border-radius: .675rem;
+    font-size: .8rem;
+}
+@media (min-width: 800px) {
+    .CenterAlign {
+        display: flex;
+        justify-content: center;
+    }
+    .Cardgroup{
+        justify-content: center;
+        width: 800px ;
+        display: flex;
+        overflow: auto;
+        flex-wrap: wrap;
+        margin: 10px;
+    }
+    .CardComponents {
+        width: 8rem;
+        height: 8.375rem;
+    }
+    .CardComponents img {
+        padding-top: 0.2rem;
+        padding-bottom: .6rem;
+        width: 82px;
+    }
+    .CardSpanComponent { 
+        width: 7.5rem;
+        height: 2rem;
+    }
+    .itensTitle, .itensTitlePrimary {
+        font-size: 3rem ;
+    }
+}

@@ -5,6 +5,7 @@ import Product from '../../imagens/produtos.png'
 import Share from '../../imagens/Search.png'
 import Use from '../../imagens/Solid.png'
 import ApenasLetra from "../../imagens/apenasLetra.png"
+import { Link } from "react-router-dom";
 
 function Header () {
     return (
@@ -28,13 +29,13 @@ function Header () {
                   {/* Input */}
                  <input placeholder= 'Pesquisa...'  className="InputPesqHeader"/>
                 {/* links nav */}
-                  <Nav.Link href="/">
+                  <Nav.Link as={Link} to='/'>
                     <div className="NavDivContainer">
                       <img src={Home} alt='a' heigth= '30px'width='30px'/>
                       <span>Menu Incial</span>
                     </div>
                   </Nav.Link>
-                  <Nav.Link href="/">
+                  <Nav.Link as={Link} to='/produtosclassificados'>
                     <div className="NavDivContainer">
                       <img src={Product} alt='a' heigth= '30px'width='30px'/>
                       <span>Produtos</span>
@@ -43,7 +44,7 @@ function Header () {
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
-          <Navbar.Brand href="/"><img src={Logo}  alt='a' width='56px' height='56px'/></Navbar.Brand>
+          <Navbar.Brand as={Link} to='/'><img src={Logo}  alt='a' width='56px' height='56px'/></Navbar.Brand>
           <div className="ContainerShaHome">
             <img src={Share} alt='a' width="20px" heigth= "20px"/>
             <img src={Use} alt='a' width="20px" heigth= "20px"/>

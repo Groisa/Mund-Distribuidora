@@ -5,11 +5,9 @@ body {
 }
 /* add gradiante */
 body {
-    background-repeat: no-repeat;
-    background-image: linear-gradient(192deg, rgba(239,202,71,1) 0%, 
-    rgba(85,194,18,1) 22%, rgba(8,255,224,1) 81%); 
-    height: 100vh;  
-    
+    background:#EBDBA2 ;
+    height : 100vh;  
+    opacity: 81.1%;
 }
 /* Header */
 
@@ -41,15 +39,13 @@ body {
     margin-bottom: 2rem;
     color: black;
 }
-.ImgTipoGraf{
-    display: flex;
-    justify-content: center;
-    padding-top: 2rem;
-}
-.ImgTipoGraf img {
-    margin-left: -4% ;
-}
 /* resets React Bootstrap */
+.notFoundTitle {
+    padding-top: 3rem;
+    font-size: 2rem ;
+    color: red;
+}
+
 .offcanvas, .offcanvas-end, .show{
     background-repeat: no-repeat;
     background-image: linear-gradient(192deg, rgba(239,202,71,1) 0%, 
