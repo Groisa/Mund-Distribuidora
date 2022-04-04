@@ -24,6 +24,9 @@ body {
     align-items: center;
     justify-content: space-around;
 }
+.ContainerShaHome img {
+    cursor: pointer;
+}
 .NavDivContainer {
     display: flex;  
     align-items: center;

@@ -2,7 +2,7 @@ import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import Logo from '../../imagens/logo.png'
 import Home from '../../imagens/home.png'
 import Product from '../../imagens/produtos.png'
-import Share from '../../imagens/Search.png'
+import Cart from '../../imagens/Cart3.png'
 import Use from '../../imagens/Solid.png'
 import ApenasLetra from "../../imagens/apenasLetra.png"
 import { Link } from "react-router-dom";
@@ -34,7 +34,7 @@ function Header () {
                       <img src={Home} alt='a' heigth= '30px'width='30px'/>
                       <span>Menu Incial</span>
                     </div>
-                  </Nav.Link>
+                  </Nav.Link >
                   <Nav.Link as={Link} to='/produtosclassificados'>
                     <div className="NavDivContainer">
                       <img src={Product} alt='a' heigth= '30px'width='30px'/>
@@ -46,8 +46,10 @@ function Header () {
             </Navbar.Offcanvas>
           <Navbar.Brand as={Link} to='/'><img src={Logo}  alt='a' width='56px' height='56px'/></Navbar.Brand>
           <div className="ContainerShaHome">
-            <img src={Share} alt='a' width="20px" heigth= "20px"/>
-            <img src={Use} alt='a' width="20px" heigth= "20px"/>
+          <Link to='/meusorcamentos'>
+            <img src={Cart} alt='a' width="25px" heigth= "25px"/>
+          </Link>
+              <img src={Use} alt='a' width="25px" heigth= "25px"/>
           </div> 
         </Container>
         </Navbar>

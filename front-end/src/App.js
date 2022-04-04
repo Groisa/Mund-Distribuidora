@@ -1,8 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./View/Homepage";
+import MyOrçaments from "./View/My Orçaments";
 import NotFound from "./View/NotFound";
 import Products from "./View/Products";
 import ProductsClass from "./View/ProductsClass";
+
 
 function App() {
   return (
@@ -11,6 +13,7 @@ function App() {
     <Route path="*" element={<NotFound/>} />
     <Route path="/produtosclassificados" element={<ProductsClass/>} />
     <Route path="/produtos" element={<Products/>} />
+    <Route path="/meusorcamentos" element={<MyOrçaments/>}/>
    </Routes>
   );
 }
