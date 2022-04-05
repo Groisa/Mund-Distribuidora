@@ -1,52 +1,9 @@
 import './index.css'
 import Layout from "../../Componentes/layout"
 import ApenasLetra from "../../imagens/apenasLetra.png"
-import ImagemTeste from '../../imagens/teste.png'
+import CardGroup from '../../Componentes/Cards/Cardgroups'
 
-function CardGroup() {
-  return (
-    <div className='CenterAlign'>
-      <div className="Cardgroup">
-          <div className="CardComponents">
-            <img src={ImagemTeste} alt='imagem do produto'/>
-            <button className='CardSpanComponent'> Nome Produto</button>
-          </div>
-          <div className="CardComponents">
-            <img src={ImagemTeste} alt='imagem do produto'/>
-            <button className='CardSpanComponent'> Nome Produto</button>
-          </div>
-          <div className="CardComponents">
-            <img src={ImagemTeste} alt='imagem do produto'/>
-            <button className='CardSpanComponent'> Nome Produto</button>
-          </div>
-          <div className="CardComponents">
-            <img src={ImagemTeste} alt='imagem do produto'/>
-            <button className='CardSpanComponent'> Nome Produto</button>
-          </div>
-          <div className="CardComponents">
-            <img src={ImagemTeste} alt='imagem do produto'/>
-            <button className='CardSpanComponent'> Nome Produto</button>
-          </div>
-          <div className="CardComponents">
-            <img src={ImagemTeste} alt='imagem do produto'/>
-            <button className='CardSpanComponent'> Nome Produto</button>
-          </div>
-          <div className="CardComponents">
-            <img src={ImagemTeste} alt='imagem do produto'/>
-            <button className='CardSpanComponent'> Nome Produto</button>
-          </div>
-          <div className="CardComponents">
-            <img src={ImagemTeste} alt='imagem do produto'/>
-            <button className='CardSpanComponent'> Nome Produto</button>
-          </div>
-          <div className="CardComponents">
-            <img src={ImagemTeste} alt='imagem do produto'/>
-            <button className='CardSpanComponent'> Nome Produto</button>
-          </div>
-      </div>
-    </div>
-  )
-}
+
 
 function HomePage() {
   return (
