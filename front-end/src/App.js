@@ -6,7 +6,7 @@ import Products from "./View/Products";
 import ProductsClass from "./View/ProductsClass";
 
 
-function App() {
+function App(products) {
   return (
    <Routes>
     <Route path="/" element={<HomePage/>}/>

@@ -2,14 +2,13 @@ import CardDivComponet from "../../Componentes/Cards/CardDivComponet";
 import Layout from "../../Componentes/layout";
 import BoxClass from '../../imagens/boxClasses.png'
 import './index.css'
-import ImagemTest from '../../imagens/teste.png'
 
 
 const productsclass = [
     {
         id : 1,
         image:  '../../imagens/teste.png',
-        name: 'Eletrica',
+        name: 'nunca',
         description :'Material de Uso eletrico',
     },
     {
@@ -29,6 +28,12 @@ const productsclass = [
         imagem:'front-end/src/imagens/teste.png',
         name: 'Limpeza',
         description :'Material de Limpeza',
+    },
+    {
+        id : 1,
+        imagem:'front-end/src/imagens/teste.png',
+        name: 'Para casa',
+        description :'Material de casa',
     }
 ]
 function ProductsClass () {

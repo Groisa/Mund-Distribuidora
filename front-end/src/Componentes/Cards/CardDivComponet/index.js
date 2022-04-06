@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import ImagemTeste from '../../../imagens/teste.png'
+
 
 
 function CardDivComponet({products}) {
@@ -10,7 +10,7 @@ function CardDivComponet({products}) {
                 <div className="ItensConteines">
                     <h2> {products.name}</h2>
                     <p>{products.description} </p>
-                    <Link to='/produtos' className="ResetLink"><button> Ir para</button></Link>
+                    <Link to={`/produtos/${products.id}`} className="ResetLink"><button> Ir para</button></Link>
                 </div>
             </div> 
         </section>
