@@ -9,7 +9,7 @@ function CardDivComponet({products}) {
                 <div><img src={products.image} alt='a' /></div>
                 <div className="ItensConteines">
                     <h2> {products.name}</h2>
-                    <p>{products.description} </p>
+                    <p>{products.shortDescription} </p>
                     <Link to={`/produtos/${products.id}`} className="ResetLink"><button> Ir para</button></Link>
                 </div>
             </div> 

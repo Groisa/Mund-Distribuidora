@@ -7,6 +7,7 @@ function MyOrçaments () {
     
     return (
         <Layout>
+        <h1> Em Desenvolimento para parte 2</h1>
             <h1 className='text-center'> Meu Orçamento</h1>
             <div className='DivTable'>
             <table className='TableEL'>
