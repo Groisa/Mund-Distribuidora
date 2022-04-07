@@ -1,0 +1,42 @@
+{
+    "products": [
+        {
+            "name": "Eletrico",
+            "shortDescription":"produto de energia",
+            "image":"front-end/public/imagensProduct/teste.png",
+            "price":3.5
+        }
+    ],
+    "classes":[
+        {
+            "name": "Eletrico",
+            "shortDescription":"produto de energia",
+            "image":"front-end/public/imagensProducts/teste.png"
+        },
+        {
+            "name": "Eletrico",
+            "shortDescription":"produto de energia",
+            "image":"front-end/public/imagensProducts/teste.png"
+        },
+        {
+            "name": "Eletrico",
+            "shortDescription":"produto de energia",
+            "image":"front-end/public/imagensProducts/teste.png"
+        },
+        {
+            "name": "Eletrico",
+            "shortDescription":"produto de energia",
+            "image":"front-end/public/imagensProducts/teste.png"
+        },
+        {
+            "name": "Eletrico",
+            "shortDescription":"produto de energia",
+            "image":"front-end/public/imagensProducts/teste.png"
+        },
+        {
+            "name": "Eletrico",
+            "shortDescription":"produto de energia",
+            "image":"front-end/public/imagensProducts/teste.png"
+        }
+    ]
+}
