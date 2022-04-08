@@ -1,7 +1,6 @@
 {
     "products": [
         {
-            "id" : 1,
             "name": "Eletrico",
             "shortDescription":"produto de energia",
             "image":"front-end/public/imagensProduct/teste.png",
@@ -10,7 +9,31 @@
     ],
     "classes":[
         {
-            "id" : 1,
+            "name": "Eletrico",
+            "shortDescription":"produto de energia",
+            "image":"front-end/public/imagensProducts/teste.png"
+        },
+        {
+            "name": "Eletrico",
+            "shortDescription":"produto de energia",
+            "image":"front-end/public/imagensProducts/teste.png"
+        },
+        {
+            "name": "Eletrico",
+            "shortDescription":"produto de energia",
+            "image":"front-end/public/imagensProducts/teste.png"
+        },
+        {
+            "name": "Eletrico",
+            "shortDescription":"produto de energia",
+            "image":"front-end/public/imagensProducts/teste.png"
+        },
+        {
+            "name": "Eletrico",
+            "shortDescription":"produto de energia",
+            "image":"front-end/public/imagensProducts/teste.png"
+        },
+        {
             "name": "Eletrico",
             "shortDescription":"produto de energia",
             "image":"front-end/public/imagensProducts/teste.png"
