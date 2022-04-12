@@ -71,6 +71,12 @@ body {
 .navbar-toggler ,.collapsed{
     border: none;
 }
+.HeaderTeste{
+    overflow: hidden;   
+    position: fixed;
+    top: 0;
+    width: 100%
+}
 
 
 

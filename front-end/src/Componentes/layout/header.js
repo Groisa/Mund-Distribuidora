@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 function Header () {
     return (
-      <>
+      <div className="HeaderTeste">
         <Navbar expand={false}>
           <Container>
             <Navbar.Toggle aria-controls="offcanvasNavbar" />
@@ -53,7 +53,7 @@ function Header () {
           </div> 
         </Container>
         </Navbar>
-      </>
+      </div>
     )
   }
   export default Header

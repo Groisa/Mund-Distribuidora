@@ -1,6 +1,7 @@
 .CompanentBox{
     display: flex;
     justify-content: center;
+    padding-top: 80px;
 }
 .CompanentBox img {
     width: 7.5rem;

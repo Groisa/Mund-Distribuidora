@@ -11,7 +11,7 @@ function ProductsClass () {
     const [loading, setLoading] = useState(true)
     const [erroCatch, seterroCatch] =useState()
     useEffect(() => {
-        fetch('http://localhost:3001/classes')
+        fetch(`${process.env.REACT_APP_API_URL}/classes`)
         .then((response) => response.json())
         .then((data) => {
             setProductsclass(data)
