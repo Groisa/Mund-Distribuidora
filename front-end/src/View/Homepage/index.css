@@ -31,9 +31,14 @@
     }
 } 
 
-
-
-
+.carousel , .slide, .carousel-fade {
+    width: 80%;
+    padding-top: 3rem ;
+    color: black;
+}
+.SectionEl{
+    padding-bottom: 80px;
+}
 @media (max-width:576px) {
     .DivImage {
         display: flex;
@@ -78,6 +83,65 @@
         padding-top: 180px;
         width: 90%;
     }
+}
+@media (min-width:576px) {
+    .DivImage {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .DivImage img{
+        width: 100vw;
+    }
+    .HeaderPage {
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        color: red;
+        font-weight: bolder;
+        padding: 10px;
+        margin: 0;
+        height: 60px;
+        text-shadow: 2px 2px 25px black;
+    }
+    .SectionEl {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }  
+    .RoadsterNoEnd {
+        width: 460px;
+    }
+    .DescriptionEnterprise {
+        font-size: 30px;
+        font-weight: lighter;
+        text-align: center;
+    }
+    .titleone{
+        font-size: 40px;
+        font-weight: bolder;
+    }
+    .ElSumario {
+        padding-top: 180px;
+        width: 90%;
+    }
+}
+@media (min-width:768px){
+    .SectionEl {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }  
+    .ElSumario {
+        padding-top: 210px;
+        width: 70%;
+    }
+    .RoadsterNoEnd {
+        width: 560px;
+    }
     .SumarioEl {
         border: 1px solid;
         border-radius: 4px ;
@@ -89,39 +153,8 @@
         transform: translate(10px) rotateX(20deg) rotateY(30deg);
     }
 }
-@media (min-width:576px) {
-    .DivImage {
-        display: flex;
-        justify-content: center;
-    }
-    .DivImage img{
-        width: 100vw;
-    }
-}
-@media (min-width:768px){
-    .DivImage {
-        display: flex;
-        justify-content: center;
-    }
-    .DivImage img{
-        width: 100vw;
-    }
-}
 @media (min-width :992px) {
-    .DivImage {
-        display: flex;
-        justify-content: center;
-    }
-    .DivImage img{
-        width: 100vw;
-    }
-}
-@media (min-width:1400px) {
-    .DivImage {
-        display: flex;
-        justify-content: center;
-    }
-    .DivImage img{
-        width: 100vw;
+    .carousel , .slide, .carousel-fade {
+        width: 50%;
     }
 }

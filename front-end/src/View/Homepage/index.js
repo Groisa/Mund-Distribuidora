@@ -5,6 +5,7 @@ import CardGroup from '../../Componentes/Cards/Cardgroups'
 import CaminhaoEntrega from "../../imagens/caminhãohome.jpg"
 import { Container } from 'react-bootstrap'
 import EstradaSemFim from "../../imagens/estradasemfim.png"
+import Carrosel from './carrosel'
 
 
 
@@ -22,10 +23,11 @@ function HomePage() {
         </div>
         <div className='ElSumario'>
             <div className='SumarioEl'>
-                <h1 className='text-center titleone' >Quem Somos</h1>
+                <h1 className='text-center titleone' >Quem Somos?</h1>
                 <p className='DescriptionEnterprise'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at eros convallis, congue justo ut, iaculis ex. Proin vel sollicitudin purus. Sed id blandit risus. In vitae ultricies nisi. Phasellus nibh orci, pellentesque sit amet molestie sed, condimentum id est. Pellentesque a iaculis est. Suspendisse potenti. Integer sed nisl laoreet, rhoncus ex eu, auctor tellus. Fusce nunc nibh, tempus id hendrerit eu, vestibulum in libero.</p>
             </div>
           </div>
+          <Carrosel/>
       </section>
 
     </Layout>
