@@ -12,6 +12,16 @@ body {
     height : 100vh;  
     opacity: 81.1%;
 }
+html, body, #root {
+    height: 100%;
+  }
+  #root {
+    display: flex;
+    flex-direction: column;
+  }
+  #root > main {
+    flex: 1;
+  }
 /* Header */
 
 .ContainerShaHome {
