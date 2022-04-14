@@ -6,7 +6,8 @@
             "shortDescription":"produto de energia",
             "image":"/imagensProducts/teste.png",
             "price":3.5,
-            "qty": 35
+            "qty": 35,
+            "classId": 1
         }
     ],
     "classes":[
@@ -16,5 +17,6 @@
             "shortDescription":"produto de energia",
             "image":"/imagensProducts/teste.png"
         }
+        
     ]
 }

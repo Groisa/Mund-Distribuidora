@@ -12,7 +12,7 @@ function App(products) {
     <Route path="/" element={<HomePage/>}/>
     <Route path="*" element={<NotFound/>} />
     <Route path="/produtosclassificados" element={<ProductsClass/>} />
-    <Route path="/produtos" element={<Products/>} />
+    <Route path="/produtos/:id" element={<Products/>} />
     <Route path="/meusorcamentos" element={<MyOrçaments/>}/>
    </Routes>
   );

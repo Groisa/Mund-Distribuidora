@@ -33,7 +33,7 @@ function ProductsClass () {
                 <Loading/>
             )}
             {erroCatch && (
-                <Alert variant="danger">{erroCatch}</Alert>
+                <Alert variant="primary">{erroCatch}</Alert>
             )}
 
             {productsclass.map(products => (
