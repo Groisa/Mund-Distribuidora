@@ -17,7 +17,7 @@ function Products() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_API_URL}/products/${id} `)
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/products/${id}?_embed=products`)
                 if (!response.ok){
                     throw new Error('Response not Ok')
                 }
@@ -49,7 +49,7 @@ function Products() {
                 {errorMsg ? (
                 <Alert variant="danger" className="mt-3">{errorMsg}</Alert>
                 ) : (
-                    <p>oi</p>
+                   <SecCategory product={productsPrimary.product}/>
                 )}
             </Container>
         </Layout>

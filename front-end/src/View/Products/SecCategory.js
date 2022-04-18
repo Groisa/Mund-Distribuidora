@@ -1,7 +1,9 @@
 import { Card } from "react-bootstrap"
-function SecCategory ({products}) {
-    return(
-        <section className="SecCategory ">
+function SecCategory({ product }) {
+    return (
+        <>
+        {product.map( products => (
+            <section className="SecCategory " key={products.id}>
                 <Card className='CardConteiner bg-transparent'>
                     <Card.Img variant="top" src={products.image} alt='a' />
                     <Card.Body className='CardConteiners'>
@@ -15,6 +17,8 @@ function SecCategory ({products}) {
                     </Card.Body>
                 </Card>
             </section>
-    ) 
+        ))}
+        </>
+    )
 }
 export default SecCategory
