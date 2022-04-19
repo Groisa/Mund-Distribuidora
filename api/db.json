@@ -7,10 +7,19 @@
             "image":"/imagensProducts/teste.png",
             "price":3.5,
             "qty": 35,
-            "classId": 1
+            "itemId": 1
+        },
+        {
+            "id": 2,
+            "name": "OIICarai",
+            "shortDescription":"produto de energia",
+            "image":"/imagensProducts/teste.png",
+            "price":3.5,
+            "qty": 35,
+            "itemId": 1
         }
     ],
-    "classes":[
+    "items":[
         {
             "id" : 1,
             "name": "Eletrico",
