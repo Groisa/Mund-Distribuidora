@@ -49,7 +49,9 @@ function Header () {
           <Link to='/meusorcamentos'>
             <img src={Cart} alt='a' width="25px" heigth= "25px"/>
           </Link>
-              <img src={Use} alt='a' width="25px" heigth= "25px"/>
+          <Link to="/additens">
+              <i class="bi bi-cloud-plus"></i>
+          </Link>
           </div> 
         </Container>
         </Navbar>

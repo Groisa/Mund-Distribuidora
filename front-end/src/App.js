@@ -3,6 +3,7 @@ import HomePage from "./View/Homepage";
 import MyOrçaments from "./View/My Orçaments";
 import NotFound from "./View/NotFound";
 import Products from "./View/Products";
+import FormItens from "./View/Products/FormAddItens";
 import ProductsClass from "./View/ProductsClass";
 
 
@@ -14,6 +15,7 @@ function App(products) {
     <Route path="/produtosclassificados" element={<ProductsClass/>} />
     <Route path="/produtos/:id" element={<Products/>} />
     <Route path="/meusorcamentos" element={<MyOrçaments/>}/>
+    <Route path="/additens" element={<FormItens/>}/>
    </Routes>
   );
 }
