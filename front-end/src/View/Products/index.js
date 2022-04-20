@@ -1,12 +1,13 @@
 import Layout from "../../Componentes/layout";
 import './index.css'
 import Box from '../../imagens/BoxProducts.png'
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import SecCategory from "./SecCategory";
 import { useParams } from "react-router-dom";
 import { Alert, Container } from "react-bootstrap";
 import Loading from "../../Componentes/Loading";
 import NotFound from "../NotFound";
+import FormItens from "./FormAddItens";
 
 
 function Products() {
@@ -14,26 +15,26 @@ function Products() {
     const [productsPrimary, setProductsPrimary] = useState()
     const [loading, setLoading] = useState(true)
     const [errorMsg, setErrorMsg] = useState()
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const response = await fetch(`${process.env.REACT_APP_API_URL}/items/${id}?_embed=products`)
-                if (!response.ok){
-                    throw new Error('Response not Ok')
-                }
-                const data = await response.json()
-                setProductsPrimary(data)
-                setLoading(false)
-            }catch (err) {
-                const message = err.message === 'Response not ok'
-                ? '404'
-                : 'Falha ao buscar produtos'
-                setErrorMsg(message)
-                setLoading(false)
+    const fetchProducts = useCallback(async () => {
+        try {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/items/${id}?_embed=products`)
+            if (!response.ok){
+                throw new Error('Response not Ok')
             }
+            const data = await response.json()
+            setProductsPrimary(data)
+            setLoading(false)
+        }catch (err) {
+            const message = err.message === 'Response not ok'
+            ? '404'
+            : 'Falha ao buscar produtos'
+            setErrorMsg(message)
+            setLoading(false)
         }
+    },[id])
+    useEffect(() => {
         fetchProducts()
-    } , [id])
+    } , [fetchProducts])
     if (loading) {
         return <Loading/>
     }
@@ -49,7 +50,9 @@ function Products() {
                 {errorMsg ? (
                 <Alert variant="danger" className="mt-3">{errorMsg}</Alert>
                 ) : (
+                <>
                    <SecCategory product={productsPrimary.products}/>
+                </>
                 )}
             </Container>
         </Layout>

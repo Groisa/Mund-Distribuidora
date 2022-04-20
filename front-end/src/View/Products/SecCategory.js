@@ -13,6 +13,10 @@ function SecCategory({ product }) {
                         {/* <div className="ButtomEl">
                             <button>Orçar</button>
                         </div> */}
+                        <div className="text-center DivItensSpan">
+                        <span className="SpanQTY">{products.qty} Quantidade</span>
+                        <span>R${products.price}</span>
+                        </div>
                     </Card.Body>
                 </Card>
             ))}

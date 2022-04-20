@@ -46,9 +46,9 @@ function Header () {
             </Navbar.Offcanvas>
           <Navbar.Brand as={Link} to='/'><img src={Logo}  alt='a' width='56px' height='56px'/></Navbar.Brand>
           <div className="ContainerShaHome">
-          <Link to='/meusorcamentos'>
+          {/* <Link to='/meusorcamentos'>
             <img src={Cart} alt='a' width="25px" heigth= "25px"/>
-          </Link>
+          </Link> */}
           <Link to="/additens">
               <i class="bi bi-cloud-plus"></i>
           </Link>

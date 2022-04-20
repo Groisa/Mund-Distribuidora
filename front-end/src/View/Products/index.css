@@ -63,7 +63,15 @@
     padding-bottom: 10px;
     padding-top: 15px;
 }
-
+.DivItensSpan {
+    display: flex;
+    justify-content: space-between;
+}
+.DivItensSpan span {
+    border: solid 1px black;
+    padding: 5px;
+    border-radius: 20px;
+}
 @media (min-width: 768px ) {
     .SecCategory {
         width: 768px;
