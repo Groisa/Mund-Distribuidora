@@ -17,7 +17,6 @@ const InitialForm = {
 function FormItens() {
     const {id} = useParams()
     const [formDados, setFormDados] = useState(InitialForm)
-    const [showSuccess, setShowSuccess] = useState(false)
     const [isSubmiting, setIsSubmiting] = useState(false)
     const handleChangeUptade = (event) => {
         setFormDados({
@@ -41,7 +40,6 @@ function FormItens() {
                     'content-type': 'application/json'
                   }
             })
-            setShowSuccess(true)
             setFormDados(InitialForm)
         }catch {
         
@@ -67,7 +65,6 @@ function FormItens() {
                     'content-type': 'application/json'
                   }
             })
-            setShowSuccess(true)
             setFormDados(InitialForm)
         }catch {
         
@@ -75,6 +72,7 @@ function FormItens() {
         setIsSubmiting(false)
     }
     return (
+
         <Layout>
             <Container className="ConteinerDivItens">
                 <i class="bi bi-cloud-plus"></i>
