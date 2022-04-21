@@ -11,7 +11,7 @@ os admins, conseguiram fazer o CRUD dos itens, e ao final do mÃªs, ter uma relaÃ
 
 **Link de Hospedagem** : https://mund-distribuidoraa.vercel.app/
   <div align='center'> 
-    <img src="https://user-images.githubusercontent.com/98929007/162553733-b09e3b7a-78b6-46e6-b6e8-5e04a02323b9.gif" />
+    <img src="https://user-images.githubusercontent.com/98929007/164357207-5afd3446-759c-4f9f-a703-e0393f6ee085.gif" />
   </div>
 
 ## Funcionalidades
