@@ -1,5 +1,5 @@
   <div align="center">
-    <img src='https://user-images.githubusercontent.com/98929007/162553427-957c353c-b65f-4ca7-8ba9-936d26940e88.png' width='190px' heigth='196px'/ >
+    <img src='https://user-images.githubusercontent.com/98929007/164355729-c966a387-fdbc-4232-80d7-d71ef0243372.png' width='590px' heigth='196px'/ >
   </div>
 
 
@@ -22,6 +22,7 @@ os admins, conseguiram fazer o CRUD dos itens, e ao final do mês, ter uma rela�
 - Login Admin/Clientes
 - Balanceamento de Produtos 
 - Histórico de orçamentos
+- Imput de Pesquisa
 
 ## Instalação
 
@@ -34,11 +35,10 @@ os admins, conseguiram fazer o CRUD dos itens, e ao final do mês, ter uma rela�
 ## Tecnologias utilizadas
 
 **Front-end:** 
-- HTML
-- Css 
-- JavaScript Vanila
-
-
+- React.Js 
+- ReactBootrap
+- Json.Serve
+- Style Componet
 
 ## Criado por
 Gabriel Eduardo 
