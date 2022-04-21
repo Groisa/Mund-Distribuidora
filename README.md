@@ -7,7 +7,7 @@
 O projeto foi criado com o intuito de disponibilizar uma plataforma para que distribuidoras pudessem, implementar seu produtos
 em um catalogo virtual, com a possibilidade de editar, adicionar ou remover produtos. O site conta também com uma área de login, que separa
 o admin do cliente, e para cada um apresenta um site diferente. O cliente conseguirar fazer orçamentos e ver seus orçamentos antigos, já
-os admins, conseguiram fazer o CRUD dos itens, e ao final do mês, ter uma relação de todo o material que foi movimentado.
+os admins, conseguirão fazer o CRUD dos itens, e ao final do mês, terão uma relação de todo o material que foi movimentado.
 
 **Link de Hospedagem** : https://mund-distribuidoraa.vercel.app/
   <div align='center'> 
