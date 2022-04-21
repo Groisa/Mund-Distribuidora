@@ -28,7 +28,7 @@ os admins, conseguiram fazer o CRUD dos itens, e ao final do mês, ter uma rela�
 - Faça o download do código fonte no computador:
 
 ```bash
-  https://github.com/Groisa/
+  https://github.com/Groisa/Mund-Distribuidora.git
 ```
 - Abra o projeto no VS Code e execute a extensão Live Server ou coloque os arquivos no servidor HTTP desejado.
 ## Tecnologias utilizadas
