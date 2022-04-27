@@ -41,9 +41,10 @@ function Header () {
                       <span>Produtos</span>
                     </div>
                   </Nav.Link>
-                  <Nav.Link as={Link} to='/produtosclassificados'>
+                  <Nav.Link as={Link} to='/login'>
                     <div className="NavDivContainer pt-5">
-                    <i class="bi bi-box-arrow-in-left"></i>
+                      <i class="bi bi-person-circle"></i>
+                      <span>Login</span>
                     </div>
                   </Nav.Link>
                 </Nav>
@@ -51,10 +52,9 @@ function Header () {
             </Navbar.Offcanvas>
           <Navbar.Brand as={Link} to='/'><img src={Logo}  alt='a' width='56px' height='56px'/></Navbar.Brand>
           <div className="ContainerShaHome">
-            <Link to="/additens">
-                <i class="bi bi-cloud-plus"></i>
-            </Link>
-            <i class="bi bi-box-arrow-in-left"></i>
+          <Link to="/login">
+            <i class="bi bi-person-circle"></i>
+          </Link>
           </div> 
         </Container>
         </Navbar>

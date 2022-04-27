@@ -6,6 +6,8 @@ import CaminhaoEntrega from "../../imagens/caminhãohome.jpg"
 import { Container } from 'react-bootstrap'
 import EstradaSemFim from "../../imagens/estradasemfim.png"
 import Carrosel from './carrosel'
+import LayoutNotLogin from '../../Componentes/layoutSemLogin'
+import LayoutLoginClient from '../../Componentes/layoutLoginCliente'
 
 
 
@@ -29,7 +31,6 @@ function HomePage() {
           </div>
           <Carrosel/>
       </section>
-
     </Layout>
   )
 }
