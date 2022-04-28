@@ -41,9 +41,10 @@ function Header () {
                       <span>Produtos</span>
                     </div>
                   </Nav.Link>
-                  <Nav.Link as={Link} to='/produtosclassificados'>
+                  <Nav.Link as={Link} to='/'>
                     <div className="NavDivContainer pt-5">
                     <i class="bi bi-box-arrow-in-left"></i>
+                    <span>Sair</span>
                     </div>
                   </Nav.Link>
                 </Nav>
