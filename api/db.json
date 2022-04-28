@@ -47,5 +47,21 @@
       "image": "https://i.pinimg.com/736x/11/f0/a0/11f0a08ed22f2f295eebb9cea0dd4d75.jpg",
       "id": 3
     }
+  ],
+  "users": [
+    {
+      "email": "gabrieleduardo.s.rosa@gmail.com",
+      "password": "$2a$10$Nz5Nni.e7GEyyM1CjwgTDuF5c/90KzWxJ5YnSHiGaaWc9cBHeSOQa",
+      "name": "Gabriel",
+      "type": 1011,
+      "id": 1
+    },
+    {
+      "email": "usuario@usuario.com",
+      "password": "$2a$10$TMMMsw0umKnlei8sZ3d7EeR401I0GwyL48SLerTnmIHBVFPPWt6AW",
+      "name": "Usuario",
+      "type": "2022",
+      "id": 2
+    }
   ]
 }
