@@ -1,15 +1,35 @@
+import { useState } from "react"
 import { Button, Col, Container, Form, Row } from "react-bootstrap"
 import Layout from "../../Componentes/layout"
+import { login } from "../../services/Users.service"
 import './index.css'
 
 function LoginPage() {
+    const [dataForm, setDataForm] = useState({
+        email: '',
+        password: ''
+    })
+    const handleChange = (event) => {
+        setDataForm({
+            ...dataForm,
+            [event.target.name]: event.target.value
+        })
+    }
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        try {
+            await login(dataForm)
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
         <Layout>
             <Container className="ConteinerDivItens">
                 <i class="bi bi-person-circle"></i>
                 <h1> Login </h1>
                 <section className="SectionForm">
-                    <Form>
+                    <Form onSubmit={handleSubmit}>
                         <Row>
                             <Form.Group as={Col} controlId="LoginEmail">
                                 <Form.Label >Email</Form.Label>
@@ -17,6 +37,9 @@ function LoginPage() {
                                     className="pt-2"
                                     placeholder="Insira seu email"
                                     type='email'
+                                    name="email"
+                                    onChange={handleChange}
+                                    value={dataForm.email}
                                 />
                             </Form.Group>
                             <Form.Group as={Col} controlId="LoginPassaword">
@@ -25,12 +48,21 @@ function LoginPage() {
                                     className="pt-2"
                                     placeholder="Insira sua senha"
                                     type="password"
+                                    name="password"
+                                    onChange={handleChange}
+                                    value={dataForm.password}
                                 />
                             </Form.Group>
                         </Row>
                         <Button type='submit' className='mt-5'>Entrar</Button>
                     </Form>
                 </section>
+
+
+
+
+
+
 
                 <h1> Cadastro </h1>
                 <section className="SectionForm">
