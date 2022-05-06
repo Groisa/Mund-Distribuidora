@@ -60,7 +60,7 @@
       "email": "usuario@usuario.com",
       "password": "$2a$10$TMMMsw0umKnlei8sZ3d7EeR401I0GwyL48SLerTnmIHBVFPPWt6AW",
       "name": "Usuario",
-      "type": "2022",
+      "type": 2022,
       "id": 2
     }
   ]

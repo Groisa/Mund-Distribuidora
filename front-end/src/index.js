@@ -5,11 +5,17 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/style.css'
 import "bootstrap-icons/font/bootstrap-icons.css";
-
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+import { Provider } from 'react-redux'
+import { store } from './store/store';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <Provider store={store}>
+  <BrowserRouter >
     <App />
-  </BrowserRouter>,
+    <ToastContainer/>
+  </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );

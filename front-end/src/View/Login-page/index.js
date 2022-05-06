@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { Button, Col, Container, Form, Row } from "react-bootstrap"
+import { useDispatch } from "react-redux"
+import { toast } from "react-toastify"
 import Layout from "../../Componentes/layout"
 import { login } from "../../services/Users.service"
 import './index.css'
@@ -15,11 +17,22 @@ function LoginPage() {
             [event.target.name]: event.target.value
         })
     }
+    const dispatch = useDispatch()
     const handleSubmit = async (event) => {
         event.preventDefault()
         try {
-            await login(dataForm)
+            const userData = await login(dataForm)
+            // envia redux
+            const action = {
+                type: 'USER_LOGIN',
+                payload: userData
+            }
+            dispatch(action)
         } catch (error) {
+            const message = error.message === 'Credentials invalid.'
+            ? 'E-mail ou senha inválidos.'
+            : 'Falha ao fazer login. Tente novamente.'
+            toast.error(message)
             console.log(error)
         }
     }
