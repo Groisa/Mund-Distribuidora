@@ -1,5 +1,5 @@
 import { urlApi } from "./api.service"
-import { setStoregeItem } from "./storege.service"
+import { setRemoveItem, setStoregeItem } from "./storege.service"
 
 export const login = async (credencialsData) => {
     const response = await fetch(`${urlApi}/login`, {
@@ -22,4 +22,7 @@ export const login = async (credencialsData) => {
       }
     setStoregeItem('user', JSON.stringify(userData))
     return userData
+}
+export const Logout = () => {
+    setRemoveItem('user')
 }

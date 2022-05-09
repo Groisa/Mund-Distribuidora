@@ -3,6 +3,8 @@ import { Button, Col, Form, Row } from "react-bootstrap"
 import { useDispatch } from "react-redux"
 import { toast } from "react-toastify"
 import { login } from "../../services/Users.service"
+import { useNavigate } from "react-router-dom"
+import { userLogin } from "../../store/Users/users.action"
 
 function LoginPagina() {
     const [dataForm, setDataForm] = useState({
@@ -16,16 +18,14 @@ function LoginPagina() {
         })
     }
     const dispatch = useDispatch()
+    const navigation = useNavigate()
     const handleSubmit = async (event) => {
         event.preventDefault()
         try {
             const userData = await login(dataForm)
             // envia redux
-            const action = {
-                type: 'USER_LOGIN',
-                payload: userData
-            }
-            dispatch(action)
+            dispatch(userLogin(userData))
+            navigation('/')
         } catch (error) {
             const message = error.message === 'Credentials invalid.'
                 ? 'E-mail ou senha inválidos.'

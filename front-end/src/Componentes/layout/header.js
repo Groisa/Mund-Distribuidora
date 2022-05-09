@@ -6,8 +6,18 @@ import Cart from '../../imagens/Cart3.png'
 import Use from '../../imagens/Solid.png'
 import ApenasLetra from "../../imagens/apenasLetra.png"
 import { Link } from "react-router-dom";
+import { Logout } from "../../services/Users.service";
+import { useDispatch, useSelector } from "react-redux"
+import { userLogout } from "../../store/Users/users.action";
+import { selectUser } from "../../store/Users/user.selctor";
 
 function Header() {
+  const user = useSelector(selectUser)
+  const dispatch = useDispatch()
+  const LogoutClick = () => {
+    Logout()
+    dispatch(userLogout())
+  }
   return (
     <div className="HeaderTeste">
       <Navbar expand={false}>
@@ -42,7 +52,7 @@ function Header() {
                   </div>
                 </Nav.Link>
                 <Nav.Link as={Link} to='/'>
-                  <div className="NavDivContainer pt-5">
+                  <div className="NavDivContainer pt-5" onClick={LogoutClick}>
                     <i class="bi bi-box-arrow-in-left"></i>
                     <span>Sair</span>
                   </div>
@@ -61,7 +71,9 @@ function Header() {
             <Link to="/meusorcamentos">
               <i class="bi bi-cart"></i>
             </Link>
-            <i class="bi bi-box-arrow-in-left"></i>
+            <div onClick={LogoutClick}>
+              <i class="bi bi-box-arrow-in-left"></i>
+            </div>
           </div>
         </Container>
       </Navbar>
