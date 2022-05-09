@@ -10,9 +10,11 @@ import { Logout } from "../../services/Users.service";
 import { useDispatch, useSelector } from "react-redux"
 import { userLogout } from "../../store/Users/users.action";
 import { selectUser } from "../../store/Users/user.selctor";
+import { UserType } from "../../Constantes/typeUser";
 
 function Header() {
   const user = useSelector(selectUser)
+  console.log(user)
   const dispatch = useDispatch()
   const LogoutClick = () => {
     Logout()
@@ -62,18 +64,31 @@ function Header() {
           </Navbar.Offcanvas>
           <Navbar.Brand as={Link} to='/'><img src={Logo} alt='a' width='56px' height='56px' /></Navbar.Brand>
           <div className="ContainerShaHome">
-            <Link to="/login">
-              <i class="bi bi-person-circle"></i>
-            </Link>
-            <Link to="/additens">
-              <i class="bi bi-cloud-plus"></i>
-            </Link>
-            <Link to="/meusorcamentos">
-              <i class="bi bi-cart"></i>
-            </Link>
-            <div onClick={LogoutClick}>
-              <i class="bi bi-box-arrow-in-left"></i>
-            </div>
+            {user && user.type === UserType.admin &&
+              <>
+                <Link to="/additens">
+                  <i class="bi bi-cloud-plus"></i>
+                </Link>
+                <div onClick={LogoutClick}>
+                  <i class="bi bi-box-arrow-in-left"></i>
+                </div>
+              </>
+            }
+            {user && user.type === UserType.usuario &&
+              <>
+                <Link to="/meusorcamentos">
+                  <i class="bi bi-cart"></i>
+                </Link>
+                <div onClick={LogoutClick}>
+                  <i class="bi bi-box-arrow-in-left"></i>
+                </div>
+              </>
+            }
+            {!user  &&
+              <Link to="/login">
+                <i class="bi bi-person-circle"></i>
+              </Link>
+            }
           </div>
         </Container>
       </Navbar>

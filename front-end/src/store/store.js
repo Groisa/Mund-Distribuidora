@@ -1,8 +1,10 @@
-import { createStore } from 'redux'
+import { combineReducers, createStore } from 'redux'
 import userReducer from './Users/user.reducer'
 
-
+const rootReducer = combineReducers({
+    userData : userReducer
+})
 export const store = createStore(
-    userReducer,
+    rootReducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )

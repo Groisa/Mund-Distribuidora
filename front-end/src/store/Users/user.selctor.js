@@ -1,3 +1,3 @@
 export const selectUser = (state) => {
-    return state
+    return state.userData
 }
