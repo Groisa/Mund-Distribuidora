@@ -1,4 +1,4 @@
 export const  UserType = {
-    admin : 2022,
-    usuario : 1011
+    admin : 1011,
+    usuario : 2022
   }

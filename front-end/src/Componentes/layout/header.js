@@ -14,7 +14,6 @@ import { UserType } from "../../Constantes/typeUser";
 
 function Header() {
   const user = useSelector(selectUser)
-  console.log(user)
   const dispatch = useDispatch()
   const LogoutClick = () => {
     Logout()
@@ -53,12 +52,14 @@ function Header() {
                     <span>Produtos</span>
                   </div>
                 </Nav.Link>
-                <Nav.Link as={Link} to='/'>
-                  <div className="NavDivContainer pt-5" onClick={LogoutClick}>
-                    <i class="bi bi-box-arrow-in-left"></i>
-                    <span>Sair</span>
-                  </div>
-                </Nav.Link>
+                {!!user &&
+                  <Nav.Link as={Link} to='/'>
+                    <div className="NavDivContainer pt-5" onClick={LogoutClick}>
+                      <i class="bi bi-box-arrow-in-left"></i>
+                      <span>Sair</span>
+                    </div>
+                  </Nav.Link>
+                }
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
@@ -84,7 +85,7 @@ function Header() {
                 </div>
               </>
             }
-            {!user  &&
+            {!user &&
               <Link to="/login">
                 <i class="bi bi-person-circle"></i>
               </Link>
