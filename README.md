@@ -17,11 +17,10 @@ os admins, conseguirão fazer o CRUD dos itens, e ao final do mês, terão uma r
 ## Funcionalidades
 
 - Carrinho de Compras
-- Favoritos
 - CRUD
+- Catálogo Online
 - Login Admin/Clientes
-- Balanceamento de Produtos 
-- Histórico de orçamentos
+- Cadastro
 - Imput de Pesquisa
 
 ## Instalação
@@ -37,8 +36,10 @@ os admins, conseguirão fazer o CRUD dos itens, e ao final do mês, terão uma r
 **Front-end:** 
 - React.Js 
 - ReactBootrap
-- Json.Serve
-- Style Componet
+- Json.Serve.Auth
+- Style Components
+- Redux
+- React-toastify
 
 ## Criado por
 Gabriel Eduardo 
