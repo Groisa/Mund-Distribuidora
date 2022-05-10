@@ -5,7 +5,7 @@ import Product from '../../imagens/produtos.png'
 import Cart from '../../imagens/Cart3.png'
 import Use from '../../imagens/Solid.png'
 import ApenasLetra from "../../imagens/apenasLetra.png"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Logout } from "../../services/Users.service";
 import { useDispatch, useSelector } from "react-redux"
 import { userLogout } from "../../store/Users/users.action";
@@ -13,11 +13,13 @@ import { selectUser } from "../../store/Users/user.selctor";
 import { UserType } from "../../Constantes/typeUser";
 
 function Header() {
+  const navigation = useNavigate()
   const user = useSelector(selectUser)
   const dispatch = useDispatch()
   const LogoutClick = () => {
     Logout()
     dispatch(userLogout())
+    navigation('/')
   }
   return (
     <div className="HeaderTeste">
