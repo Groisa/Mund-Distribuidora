@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import PrivateRouter from "./Componentes/PrivatesAuth";
 import HomePage from "./View/Homepage";
 import LoginPage from "./View/Login-page";
 import MyOrçaments from "./View/My Orçaments";
@@ -10,15 +11,29 @@ import ProductsClass from "./View/ProductsClass";
 
 function App(products) {
   return (
-   <Routes>
-    <Route path="/" element={<HomePage/>}/>
-    <Route path="*" element={<NotFound/>} />
-    <Route path="/produtosclassificados" element={<ProductsClass/>} />
-    <Route path="/produtos/:id" element={<Products/>} />
-    <Route path="/meusorcamentos" element={<MyOrçaments/>}/>
-    <Route path="/additens" element={<FormItens/>}/>
-    <Route path="/login" element={<LoginPage/>}/>
-   </Routes>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="*" element={<NotFound />} />
+      <Route path="/produtosclassificados" element={<ProductsClass />} />
+      <Route path="/produtos/:id" element={<Products />} />
+      <Route
+        path="/meusorcamentos"
+        element={
+          <PrivateRouter>
+            <MyOrçaments />
+          </PrivateRouter>
+        }
+      />
+      <Route
+        path="/additens"
+        element={
+          <PrivateRouter>
+            <FormItens />
+          </PrivateRouter>
+        }
+      />
+      <Route path="/login" element={<LoginPage />} />
+    </Routes>
   );
 }
 
