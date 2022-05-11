@@ -63,6 +63,7 @@ const StyledContainer = styled.div`
 `
 const StyledCard = styled(Card)`
     margin: 1rem;
+    width: 80%;
     @media(min-width: 576px) {
         width: 375px;
     }
@@ -75,10 +76,11 @@ const StyledCardTotal = styled(Card) `
 const StyledSubContainer = styled.div`
     padding-top: 8rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     @media (min-width: 992px) {
         width: 850px;
+        justify-content: space-between;
     }
 `
 const StyledDivText = styled.div`
