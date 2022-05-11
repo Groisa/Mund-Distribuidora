@@ -1,16 +1,53 @@
+import { useState } from "react"
 import { Button, Col, Form, Row } from "react-bootstrap"
+import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import { UserNew } from "../../services/Users.service"
+import { userLogin } from "../../store/Users/users.action"
+import { toast } from "react-toastify"
 
 function CadastroPagina () {
+    const [dataCadastro, setDataCadastro] = useState({
+        nome: '',
+        sobrenome: '',
+        email : '',
+        password: '',
+        endereço: '',
+        cep: ''
+    })
+    const handleChange = (event) => {
+        setDataCadastro({
+            ...dataCadastro,
+            [event.target.name]: event.target.value
+        })
+    }
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        try {
+           const userData = await UserNew(dataCadastro)
+           dispatch(userLogin(userData))
+           navigate('/')
+        } catch (error) {
+            const message = error.message === 'Email already exists' 
+            ? 'Email ja cadastrado.'
+            : 'Erro ao fazer cadastro.'
+            toast.error(message)
+        }
+    }
     return (
         <section className="SectionForm">
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Row>
                 <Form.Group as={Col} controlId="LoginName" className="pt-2">
                     <Form.Label >Nome</Form.Label>
                     <Form.Control
                         className="pt-2"
                         placeholder="Insira seu nome"
-                        type='email'
+                        onChange={handleChange}
+                        value={dataCadastro.nome}
+                        name='nome'
                     />
                 </Form.Group>
                 <Form.Group as={Col} controlId="LoginSobreNome" className="pt-2">
@@ -18,7 +55,9 @@ function CadastroPagina () {
                     <Form.Control
                         className="pt-2"
                         placeholder="Insira seu Sobrenome"
-                        type="password"
+                        onChange={handleChange}
+                        value={dataCadastro.sobrenome}
+                        name='sobrenome'
                     />
                 </Form.Group>
             </Row>
@@ -28,6 +67,9 @@ function CadastroPagina () {
                     className="pt-2"
                     placeholder="Insira seu email"
                     type="email"
+                    onChange={handleChange}
+                    value={dataCadastro.email}
+                    name='email'
                 />
             </Form.Group>
             <Form.Group as={Col} controlId="LoginPasswordCadastro" className="pt-2">
@@ -36,6 +78,10 @@ function CadastroPagina () {
                     className="pt-2"
                     placeholder="Insira sua senha"
                     type="password"
+                    onChange={handleChange}
+                    value={dataCadastro.password}
+                    name='password'
+                    minLength={6}
                 />
             </Form.Group>
             <Row className="pt-2">
@@ -44,6 +90,9 @@ function CadastroPagina () {
                     <Form.Control
                         className="pt-2"
                         placeholder="Insira seu endereço"
+                        onChange={handleChange}
+                        value={dataCadastro.endereço}
+                        name='endereço'
                     />
                 </Form.Group>
                 <Form.Group as={Col} controlId="LoginCEP" className="pt-2">
@@ -51,7 +100,9 @@ function CadastroPagina () {
                     <Form.Control
                         className="pt-2"
                         placeholder="Insira seu CEP"
-                        type='number'
+                        onChange={handleChange}
+                        value={dataCadastro.cep}
+                        name='cep'
                     />
                 </Form.Group>
             </Row>
