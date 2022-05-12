@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom"
 import { userLogin } from "../../store/Users/users.action"
 
 function LoginPagina() {
+    const [isSubmiting,  setIsSubmiting] = useState(false)
     const [dataForm, setDataForm] = useState({
         email: '',
         password: ''
@@ -22,6 +23,7 @@ function LoginPagina() {
     const handleSubmit = async (event) => {
         event.preventDefault()
         try {
+            setIsSubmiting(true)
             const userData = await login(dataForm)
             // envia redux
             dispatch(userLogin(userData))
@@ -33,6 +35,7 @@ function LoginPagina() {
             toast.error(message)
             console.log(error)
         }
+        setIsSubmiting(false)
     }
     return (
         <section className="SectionForm">
@@ -61,7 +64,7 @@ function LoginPagina() {
                         />
                     </Form.Group>
                 </Row>
-                <Button type='submit' className='mt-5'>Entrar</Button>
+                <Button type='submit' disabled={isSubmiting} className='mt-5'>Entrar</Button>
             </Form>
         </section>
     )
