@@ -31,6 +31,7 @@ function CadastroPagina() {
             const userData = await UserNew(dataCadastro)
             dispatch(userLogin(userData))
             navigate('/')
+            toast.success('Cadastro efetuado com sucesso!')
         } catch (error) {
             const message = error.message === 'Email already exists'
                 ? 'Email ja cadastrado.'

@@ -28,6 +28,7 @@ function LoginPagina() {
             // envia redux
             dispatch(userLogin(userData))
             navigation('/')
+            toast.success('Logado Com sucesso!')
         } catch (error) {
             const message = error.message === 'Credentials invalid.'
                 ? 'E-mail ou senha inválidos.'

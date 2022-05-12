@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { userLogout } from "../../store/Users/users.action";
 import { selectUser } from "../../store/Users/user.selctor";
 import { UserType } from "../../Constantes/typeUser";
+import { toast } from "react-toastify";
 
 function Header() {
   const navigation = useNavigate()
@@ -20,6 +21,7 @@ function Header() {
     Logout()
     dispatch(userLogout())
     navigation('/')
+    toast.success('Deslogado com sucesso!')
   }
   return (
     <div className="HeaderTeste">
