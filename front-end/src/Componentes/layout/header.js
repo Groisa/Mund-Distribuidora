@@ -12,6 +12,7 @@ import { userLogout } from "../../store/Users/users.action";
 import { selectUser } from "../../store/Users/user.selctor";
 import { UserType } from "../../Constantes/typeUser";
 import { toast } from "react-toastify";
+import styled from "styled-components"
 
 function Header() {
   const navigation = useNavigate()
@@ -84,9 +85,9 @@ function Header() {
                 <Link to="/meusorcamentos">
                   <i class="bi bi-cart"></i>
                 </Link>
-                <div onClick={LogoutClick}>
+                <DivEl onClick={LogoutClick}>
                   <i class="bi bi-box-arrow-in-left"></i>
-                </div>
+                </DivEl>
               </>
             }
             {!user &&
@@ -101,3 +102,7 @@ function Header() {
   )
 }
 export default Header
+
+const DivEl = styled.div `
+  cursor: pointer;
+`
