@@ -1,8 +1,9 @@
-import { Card } from "react-bootstrap"
+import { Button, Card } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { UserType } from "../../Constantes/typeUser"
 import { selectUser } from "../../store/Users/user.selctor"
 import styled from "styled-components"
+
 
 function SecCategory({ product }) {
     const user = useSelector(selectUser)
@@ -29,12 +30,12 @@ function SecCategory({ product }) {
                         {user && user.type === UserType.admin 
                         &&
                      <DivEditDelete>
-                         <div>
+                         <button >
                             <i class="bi bi-trash-fill"></i>
-                         </div>
-                         <div>
+                         </button>
+                         <button>
                             <i class="bi bi-pencil-square"></i>
-                         </div>
+                         </button>
                      </DivEditDelete>   
                     }
         </section>
@@ -53,5 +54,8 @@ const DivEditDelete = styled.div `
         border-radius: 5px;
         cursor: pointer;
         padding: 1px ;
+    }
+    button {
+        border: none;
     }
 `
