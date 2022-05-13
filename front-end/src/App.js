@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import PrivateRouter from "./Componentes/PrivatesAuth";
+import { UserType } from "./Constantes/typeUser";
 import HomePage from "./View/Homepage";
 import LoginPage from "./View/Login-page";
 import MyOrçaments from "./View/My Orçaments";
@@ -19,7 +20,7 @@ function App(products) {
       <Route
         path="/meusorcamentos"
         element={
-          <PrivateRouter>
+          <PrivateRouter userTypes={[UserType.usuario, UserType.admin]}>
             <MyOrçaments />
           </PrivateRouter>
         }
@@ -27,7 +28,7 @@ function App(products) {
       <Route
         path="/additens"
         element={
-          <PrivateRouter>
+          <PrivateRouter userTypes={[UserType.admin]}>
             <FormItens />
           </PrivateRouter>
         }
