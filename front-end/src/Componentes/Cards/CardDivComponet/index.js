@@ -3,9 +3,18 @@ import { Link } from "react-router-dom"
 import { UserType } from "../../../Constantes/typeUser"
 import { selectUser } from "../../../store/Users/user.selctor"
 import styled from "styled-components"
+import { delClass } from "../../../services/classes.service"
+import { toast } from "react-toastify"
 
-
-function CardDivComponet({ products }) {
+function CardDivComponet({ products, onDelete }) {
+    const handleClick = async (products) => {
+        try {
+            await delClass(products.id)
+            await onDelete()
+        } catch  {
+            toast.error('Falha ao deletar classe. Tente Novamente!')
+        }
+    }
     const user = useSelector(selectUser)
     return (
         <section className="SecCategory">
@@ -26,10 +35,10 @@ function CardDivComponet({ products }) {
             {user && user.type === UserType.admin 
                         &&
                      <DivEditDelete>
-                         <div>
+                         <button onClick={() => handleClick(products)}>
                             <i class="bi bi-trash-fill"></i>
-                         </div>
-                         <Link to='/editorclasses'>
+                         </button>
+                         <Link to={`/editorclasses/${products.id}`}>
                             <i class="bi bi-pencil-square"></i>
                          </Link>
                      </DivEditDelete>   
@@ -51,5 +60,8 @@ const DivEditDelete = styled.div `
         border-radius: 5px;
         cursor: pointer;
         padding: 1px;
+    }
+    button {
+        border: none;
     }
 `

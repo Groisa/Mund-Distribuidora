@@ -4,13 +4,24 @@ import { UserType } from "../../Constantes/typeUser"
 import { selectUser } from "../../store/Users/user.selctor"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
+import { toast } from "react-toastify"
+import { delProducs } from "../../services/products.service"
 
 
-function SecCategory({ product }) {
+function SecCategory({ product, onDelete }) {
     const user = useSelector(selectUser)
+    const handleClick = async (products) => {
+        try {
+            await delProducs(products.id)
+            await onDelete()
+        } catch  {
+            toast.error('Falha ao deletar classe. Tente Novamente!')
+        }
+    }
     return (
         <section className="SecCategory " >
             {product?.map(products => (
+                <>
                 <Card className='CardConteiner bg-transparent' key={products.id}>
                     <Card.Img variant="top" src={products.image} alt='a' />
                     <Card.Body className='CardConteiners'>
@@ -27,11 +38,10 @@ function SecCategory({ product }) {
                         </div>
                     </Card.Body>
                 </Card>
-            ))}
-                        {user && user.type === UserType.admin 
+                {user && user.type === UserType.admin 
                         &&
                      <DivEditDelete>
-                         <button >
+                         <button onClick={() => handleClick(products)}>
                             <i class="bi bi-trash-fill"></i>
                          </button>
                          <Link to= '/editorprodutos'>
@@ -39,6 +49,9 @@ function SecCategory({ product }) {
                          </Link>
                      </DivEditDelete>   
                     }
+                </>
+            ))}
+                      
         </section>
     )
 }

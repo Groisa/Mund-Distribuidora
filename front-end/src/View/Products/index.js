@@ -48,7 +48,7 @@ function Products() {
                 <Alert variant="danger" className="mt-3">{errorMsg}</Alert>
                 ) : (
                 <>
-                   <SecCategory product={productsPrimary.products}/>
+                   <SecCategory product={productsPrimary.products} onDelete={fetchProducts}/>
                 </>
                 )}
             </Container>

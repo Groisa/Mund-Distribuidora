@@ -11,21 +11,21 @@ function ProductsClass() {
     const [productsclass, setProductsclass] = useState([])
     const [loading, setLoading] = useState(true)
     const [erroCatch, seterroCatch] = useState()
+    const fetchClass = async () => {
+        try {
+            const data = await getClass()
+            setProductsclass(data)
+            setLoading(false)
+        }
+         catch (err) {
+            const message = err.message === 'Response not ok.'
+            ? '404'
+            : 'Falha ao buscar informações do curso. Recarregue a página.'
+            seterroCatch(message)
+          setLoading(false)
+        }
+    } 
     useEffect(() => {
-        const fetchClass = async () => {
-            try {
-                const data = await getClass()
-                setProductsclass(data)
-                setLoading(false)
-            }
-             catch (err) {
-                const message = err.message === 'Response not ok.'
-                ? '404'
-                : 'Falha ao buscar informações do curso. Recarregue a página.'
-                seterroCatch(message)
-              setLoading(false)
-            }
-        } 
         fetchClass()
     }, [])
     return (
@@ -43,7 +43,7 @@ function ProductsClass() {
 
             {productsclass.map(products => (
                 <div className="ProductsCategory" key={products.id}>
-                    <CardDivComponet products={products} />
+                    <CardDivComponet products={products} onDelete={fetchClass}/>
                 </div>
             ))}
         </Layout>

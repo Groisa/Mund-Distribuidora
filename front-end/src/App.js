@@ -36,7 +36,7 @@ function App(products) {
         }
       />
       <Route 
-        path="/editorprodutos"
+        path="/editorprodutos:id"
         element= {
             <PrivateRouter userTypes={[UserType.admin]}>
               <ProductsEditView />
@@ -44,7 +44,7 @@ function App(products) {
           }
         />
         <Route 
-        path="/editorclasses"
+        path="/editorclasses:id"
         element= {
             <PrivateRouter userTypes={[UserType.admin]}>
               <ClassEditView />
