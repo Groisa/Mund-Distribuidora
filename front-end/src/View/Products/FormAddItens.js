@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import Layout from "../../Componentes/layout";
+import { getAuthorizationHeaders } from "../../services/api.service";
 
 const InitialForm = {
     ClassUser: '',
@@ -36,7 +37,8 @@ function FormItens() {
                     image: formDados.ImageUserClass,
                 }),
                 headers: {
-                    'content-type': 'application/json'
+                    'content-type': 'application/json',
+                    ...getAuthorizationHeaders()
                 }
             })
             setFormDados(InitialForm)
@@ -61,7 +63,8 @@ function FormItens() {
                     itemId: parseInt(formDados.IdClassName)
                 }),
                 headers: {
-                    'content-type': 'application/json'
+                    'content-type': 'application/json',
+                    ...getAuthorizationHeaders()
                 }
             })
             setFormDados(InitialForm)

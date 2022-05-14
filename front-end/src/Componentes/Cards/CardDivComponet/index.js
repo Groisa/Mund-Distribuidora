@@ -29,9 +29,9 @@ function CardDivComponet({ products }) {
                          <div>
                             <i class="bi bi-trash-fill"></i>
                          </div>
-                         <div>
+                         <Link to='/editorclasses'>
                             <i class="bi bi-pencil-square"></i>
-                         </div>
+                         </Link>
                      </DivEditDelete>   
                     }
         </section>

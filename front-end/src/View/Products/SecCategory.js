@@ -1,8 +1,9 @@
-import { Button, Card } from "react-bootstrap"
+import {  Card } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { UserType } from "../../Constantes/typeUser"
 import { selectUser } from "../../store/Users/user.selctor"
 import styled from "styled-components"
+import { Link } from "react-router-dom"
 
 
 function SecCategory({ product }) {
@@ -33,9 +34,9 @@ function SecCategory({ product }) {
                          <button >
                             <i class="bi bi-trash-fill"></i>
                          </button>
-                         <button>
+                         <Link to= '/editorprodutos'>
                             <i class="bi bi-pencil-square"></i>
-                         </button>
+                         </Link>
                      </DivEditDelete>   
                     }
         </section>

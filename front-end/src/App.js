@@ -1,6 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import PrivateRouter from "./Componentes/PrivatesAuth";
 import { UserType } from "./Constantes/typeUser";
+import ClassEditView from "./View/EditItens/classesEdit";
+import ProductsEditView from "./View/EditItens/productsEdit";
 import HomePage from "./View/Homepage";
 import LoginPage from "./View/Login-page";
 import MyOrçaments from "./View/My Orçaments";
@@ -33,6 +35,22 @@ function App(products) {
           </PrivateRouter>
         }
       />
+      <Route 
+        path="/editorprodutos"
+        element= {
+            <PrivateRouter userTypes={[UserType.admin]}>
+              <ProductsEditView />
+            </PrivateRouter>
+          }
+        />
+        <Route 
+        path="/editorclasses"
+        element= {
+            <PrivateRouter userTypes={[UserType.admin]}>
+              <ClassEditView />
+            </PrivateRouter>
+          }
+        />
       <Route path="/login" element={<LoginPage />} />
     </Routes>
   );
