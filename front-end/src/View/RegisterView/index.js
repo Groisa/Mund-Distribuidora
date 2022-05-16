@@ -45,7 +45,7 @@ function FormItens() {
             setFormDados(InitialForm)
             toast.success('Classe cadastrada com sucesso!')
         } catch {
-
+            toast.error('Não foi possivel fazer o cadastro!')
         }
         setIsSubmiting(false)
     }
@@ -72,7 +72,7 @@ function FormItens() {
             setFormDados(InitialForm)
             toast.success('Produto cadastrado com sucesso!')
         } catch {
-
+            toast.error('Não foi possivel fazer o cadastro!')
         }
         setIsSubmiting(false)
     }

@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom";
 import { Alert, Container } from "react-bootstrap";
 import Loading from "../../Componentes/Loading";
 import NotFound from "../NotFound";
-import FormItens from "./FormAddItens";
 import { getProducts } from "../../services/products.service";
 
 
