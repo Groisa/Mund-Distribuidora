@@ -134,6 +134,7 @@ function FormItens() {
                                 onChange={handleChangeUptade}
                                 required
                             />
+                            <Form.Text>Insira a imagem hospedada no <a href="https://cloudinary.com/" target='_blank'>Cloudinary</a></Form.Text>
                         </Form.Group>
                         <Form.Group as={Col} controlId="formGridEmail">
                             <Form.Label>Nome do Produto</Form.Label>

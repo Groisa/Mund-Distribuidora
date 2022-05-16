@@ -8,8 +8,8 @@ import LoginPage from "./View/Login-page";
 import MyOrçaments from "./View/My Orçaments";
 import NotFound from "./View/NotFound";
 import Products from "./View/Products";
-import FormItens from "./View/Products/FormAddItens";
 import ProductsClass from "./View/ProductsClass";
+import FormItens from "./View/RegisterView";
 
 
 function App(products) {
@@ -31,7 +31,7 @@ function App(products) {
         path="/additens"
         element={
           <PrivateRouter userTypes={[UserType.admin]}>
-            <FormItens />
+            <FormItens/>
           </PrivateRouter>
         }
       />
