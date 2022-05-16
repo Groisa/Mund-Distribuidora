@@ -115,6 +115,7 @@ function FormItens() {
                                 onChange={handleChangeUptade}
                                 required
                             />
+                             <Form.Text>Insira a imagem hospedada no <a href="https://cloudinary.com/" target='_blank'>Cloudinary</a></Form.Text>
                         </Form.Group>
 
                         <Button type='submit' disabled={isSubmiting} className='mt-5'>Cadastrar Classe</Button>

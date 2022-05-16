@@ -1,20 +1,56 @@
 import Layout from "../../Componentes/layout"
 import styled from "styled-components"
 import { Button, Col, Container, Form, Row } from "react-bootstrap"
+import { useNavigate, useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { toast } from "react-toastify"
+import { getProductById, upDateProdutcs } from "../../services/products.service"
 
 function ProductsEditView() {
+    const { id } = useParams()
+    const [productEdit,  setProductEdit] = useState({})
+    const navigate = useNavigate()
+    const handleChangeUptade = (event) => {
+        setProductEdit({
+            ...productEdit,
+            [event.target.name]: event.target.value
+        })
+    }
+    const handleSubmit = (event) => {
+        try {
+            upDateProdutcs(id, productEdit )
+            navigate('/')
+            toast.success('Produto editado com sucesso')
+        } catch  {
+            toast.error('Erro ao buscar ao alterar produto, tente novamente')
+        }
+    }
+    useEffect(() =>{
+        const fetchClass = async () => {
+            try {
+                const productData = await getProductById(id)
+                setProductEdit(productData)
+            } catch (error) {
+                toast.error('Erro ao buscar produto, recarregue a pagina')
+            }
+        }
+    fetchClass()
+    }, [id])
+    
     return (
         <Layout>
             <ContainerStyled >
                 <TitleElStyled>
                     <i class="bi bi-pencil-square"></i>
                     <h1> Editor De Produtos</h1>
-                    <Form >
+                    <Form onSubmit={handleSubmit}>
                         <Form.Group as={Col} controlId="ImageClass">
                             <Form.Label>Insira o Link da imagem</Form.Label>
                             <Form.Control
                                 placeholder="Link Imagem"
-                                name='ImageUserProducts'
+                                name='image'
+                                onChange={handleChangeUptade}
+                                value={productEdit.image}
                                 required
                             />
                         </Form.Group>
@@ -22,7 +58,9 @@ function ProductsEditView() {
                             <Form.Label>Nome do Produto</Form.Label>
                             <Form.Control
                                 placeholder="Insira o Produto"
-                                name='ProductUser'
+                                onChange={handleChangeUptade}
+                                value={productEdit.name}
+                                name='name'
                                 required
                             />
 
@@ -33,7 +71,9 @@ function ProductsEditView() {
                                 <Form.Control
                                     type="number"
                                     placeholder="Insira o Preço"
-                                    name='PriceUser'
+                                    onChange={handleChangeUptade}
+                                    value={productEdit.price}
+                                    name='price'
                                     required />
                             </Form.Group>
 
@@ -42,7 +82,9 @@ function ProductsEditView() {
                                 <Form.Control
                                     type="number"
                                     placeholder="Insira a Quantidade"
-                                    name='QtyUser'
+                                    onChange={handleChangeUptade}
+                                    value={productEdit.qty}
+                                    name='qty'
                                     required
                                 />
                             </Form.Group>
@@ -51,18 +93,12 @@ function ProductsEditView() {
                             <Form.Label>Descrição Curta</Form.Label>
                             <Form.Control
                                 placeholder="Insira a Descrição"
-                                name='DescriptionProductUser'
+                                name='shortDescription'
+                                onChange={handleChangeUptade}
+                                value={productEdit.shortDescription}
                                 required />
                         </Form.Group>
-                        <Form.Group className="mb-2" controlId="formGridAddress1">
-                            <Form.Label>Escolha a Classe</Form.Label>
-                            <Form.Control
-                                type="number"
-                                placeholder="Insira o Id da classe"
-                                name='IdClassName'
-                                required />
-                        </Form.Group>
-                        <Button type='submit' className='mt-5'>Cadastrar Produto</Button>
+                        <Button type='submit' className='mt-5'>Editar Produto</Button>
                     </Form>
                 </TitleElStyled>
             </ContainerStyled>

@@ -51,7 +51,7 @@ function SecCategory({ product, onDelete }) {
                             <button onClick={() => handleClick(products)}>
                                 <i class="bi bi-trash-fill"></i>
                             </button>
-                            <Link to='/editorprodutos'>
+                            <Link to={`/editorprodutos/${products.id}`}>
                                 <i class="bi bi-pencil-square"></i>
                             </Link>
                         </DivEditDelete>
