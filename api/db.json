@@ -62,6 +62,16 @@
       "name": "Usuario",
       "type": 2022,
       "id": 2
+    },
+    {
+      "email": "gabrielcjjf@gmail.com",
+      "password": "$2a$10$/BoxvtQSZ.3f7E7ZXCllVO90SBMErJMl5fDCf4ffg7hQaxw9FdgJm",
+      "nome": "Gabriel Eduardo ",
+      "sobrenome": "Abreu Santa Rosa",
+      "endereço": "Av. Belo Vale, Dom Oscar, 75A",
+      "cep": "36414-312",
+      "type": 2022,
+      "id": 3
     }
   ]
 }
