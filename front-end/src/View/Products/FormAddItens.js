@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import Layout from "../../Componentes/layout";
 import { getAuthorizationHeaders } from "../../services/api.service";
 
@@ -42,6 +43,7 @@ function FormItens() {
                 }
             })
             setFormDados(InitialForm)
+            toast.success('Classe cadastrada com sucesso!')
         } catch {
 
         }
@@ -68,6 +70,7 @@ function FormItens() {
                 }
             })
             setFormDados(InitialForm)
+            toast.success('Produto cadastrado com sucesso!')
         } catch {
 
         }
