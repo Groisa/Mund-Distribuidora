@@ -11,12 +11,12 @@ import { useState } from "react"
 
 function SecCategory({ product, onDelete }) {
     const user = useSelector(selectUser)
-   const [dataClass, setDataClass] = useState()
+    const [dataClass, setDataClass] = useState()
     const handleClick = (products) => {
-       setDataClass(products)
+        setDataClass(products)
     }
     const handleHide = () => setDataClass(undefined)
-    const handleDelete = async() => {
+    const handleDelete = async () => {
         try {
             await delProducs(dataClass.id)
             await onDelete()
@@ -37,27 +37,31 @@ function SecCategory({ product, onDelete }) {
                             <Card.Text>
                                 {products.shortDescription}
                             </Card.Text>
-                            {/* <div className="ButtomEl">
-                            <button>Orçar</button>
-                        </div> */}
                             <div className="text-center DivItensSpan">
                                 <span className="SpanQTY">{products.qty} Quantidade</span>
                                 <span>R${products.price}</span>
+                                {user && user.type === UserType.usuario 
+                                    &&
+                                    <ButtonStyle>
+                                        <i class="bi bi-bag-check-fill"></i>
+                                    </ButtonStyle>
+                                }
                             </div>
                         </Card.Body>
                         {user && user.type === UserType.admin
-                        &&
-                        <DivEditDelete>
-                            <button onClick={() => handleClick(products)}>
-                                <i class="bi bi-trash-fill"></i>
-                            </button>
-                            <Link to={`/editorprodutos/${products.id}`}>
-                                <i class="bi bi-pencil-square"></i>
-                            </Link>
-                        </DivEditDelete>
-                    }
+                            &&
+                            <DivEditDelete>
+                                <button onClick={() => handleClick(products)}>
+                                    <i class="bi bi-trash-fill"></i>
+                                </button>
+                                <Link to={`/editorprodutos/${products.id}`}>
+                                    <i class="bi bi-pencil-square"></i>
+                                </Link>
+                            </DivEditDelete>
+                        }
+
                     </Card>
-                   
+
                     {/* Modal */}
                     <Modal show={dataClass}>
                         <Modal.Header >
@@ -95,4 +99,8 @@ const DivEditDelete = styled.div`
     button {
         border: none;
     }
+`
+const ButtonStyle = styled.button`
+    border: none;
+    background: none;
 `

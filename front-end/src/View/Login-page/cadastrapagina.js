@@ -52,6 +52,7 @@ function CadastroPagina() {
                             onChange={handleChange}
                             value={dataCadastro.nome}
                             name='nome'
+                            required
                         />
                     </Form.Group>
                     <Form.Group as={Col} controlId="LoginSobreNome" className="pt-2">
@@ -62,6 +63,7 @@ function CadastroPagina() {
                             onChange={handleChange}
                             value={dataCadastro.sobrenome}
                             name='sobrenome'
+                            required
                         />
                     </Form.Group>
                 </Row>
@@ -74,6 +76,7 @@ function CadastroPagina() {
                         onChange={handleChange}
                         value={dataCadastro.email}
                         name='email'
+                        required
                     />
                 </Form.Group>
                 <Form.Group as={Col} controlId="LoginPasswordCadastro" className="pt-2">
@@ -86,6 +89,7 @@ function CadastroPagina() {
                         value={dataCadastro.password}
                         name='password'
                         minLength={6}
+                        required
                     />
                 </Form.Group>
                 <Row className="pt-2">
@@ -97,6 +101,7 @@ function CadastroPagina() {
                             onChange={handleChange}
                             value={dataCadastro.endereço}
                             name='endereço'
+                            required
                         />
                     </Form.Group>
                     <Form.Group as={Col} controlId="LoginCEP" className="pt-2">
@@ -107,6 +112,7 @@ function CadastroPagina() {
                             onChange={handleChange}
                             value={dataCadastro.cep}
                             name='cep'
+                            required
                         />
                     </Form.Group>
                 </Row>

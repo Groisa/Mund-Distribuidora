@@ -51,6 +51,7 @@ function LoginPagina() {
                             name="email"
                             onChange={handleChange}
                             value={dataForm.email}
+                            required
                         />
                     </Form.Group>
                     <Form.Group as={Col} controlId="LoginPassaword">
@@ -62,6 +63,7 @@ function LoginPagina() {
                             name="password"
                             onChange={handleChange}
                             value={dataForm.password}
+                            required
                         />
                     </Form.Group>
                 </Row>
