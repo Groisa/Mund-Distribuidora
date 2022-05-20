@@ -1,56 +1,106 @@
 import './index.css'
 import Layout from "../../Componentes/layout"
-import { Button, Card, Container } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 import styled from "styled-components"
+import { useDispatch, useSelector } from 'react-redux'
+import { productSelect } from '../../store/ProductsCart/products.selector'
+import { toast } from 'react-toastify'
+import { useState } from 'react'
 
 function MyOrçaments() {
+    const [formQty, setFormQty] = useState()
+    const itensCart = useSelector(productSelect)
+    const dispatch = useDispatch()
+    const Somovalores = itensCart.reduce((accumuletor, correntValue) => {
+        accumuletor += correntValue.price * correntValue.qty
+        return accumuletor
+    }, 0)
+    const handleRemove = (products) => {
+        const action = {
+            type : 'REMOVE_OF_CART',
+            payload : products
+        }
+        dispatch(action)
+        toast.success('Produto removido com sucesso',{
+            theme: "dark"
+        })
+        
+    }
+    const handlePedido = () => {
+        const newPedido = itensCart
+        console.log(newPedido)
+    }
+    const handleCart = (products) => {
+        const productsArry = {
+            ...products,
+            qty: 1
+        }
+        const action = {
+            type: 'ADD_TO_CART',
+            payload: productsArry
+        }
+        dispatch(action)
+    }
+    const handleRemoveQty = (products) => {
+        const action = {
+            type: 'REMOVE_QTY',
+            payload: products
+        }
+        dispatch(action)
+    }
     return (
         <Layout>
             <StyledContainer>
                 <StyledSubContainer>
-                    <StyledCard >
-                        <Card.Header>Classe</Card.Header>
-                        <Card.Body>
-                            <Card.Title>Produtos</Card.Title>
-                            <Card.Text>
-                                <StyledDivText>
-                                    <StyledDivInput>
-                                        <p>Quantidade</p>
-                                        <StyledInput value='1' />
-                                    </StyledDivInput>
-                                    <p>Valor R$ 3,52</p>
-                                </StyledDivText>
-                            </Card.Text>
-                            <Button variant='transparent'><i class="bi bi-trash-fill"></i></Button>
-                        </Card.Body>
-                    </StyledCard>
-                    <StyledCard >
-                        <Card.Header>Classe</Card.Header>
-                        <Card.Body>
-                            <Card.Title>Produtos</Card.Title>
-                            <Card.Text>
-                                <StyledDivText>
-                                    <StyledDivInput>
-                                        <p>Quantidade</p>
-                                        <StyledInput value='1' />
-                                    </StyledDivInput>
-                                    <p>Valor R$ 3,52</p>
-                                </StyledDivText>
-                            </Card.Text>
-                            <Button variant='transparent'><i class="bi bi-trash-fill"></i></Button>
-                        </Card.Body>
-                    </StyledCard>
+                    {itensCart.length === 0 ? (
+                        <h1> Sem Produtos</h1>
+                    ) : itensCart.map(products => (
+                        <StyledCard key={products.id} >
+                            <Card.Header>{products.class}</Card.Header>
+                            <Card.Body>
+                                <Card.Title>{products.name}</Card.Title>
+                                <Card.Text>
+                                    <StyledDivText>
+                                        <StyledDivInput>
+                                            <p>Quantidade</p>
+                                           <StyledQty>{products.qty}</StyledQty>
+                                        </StyledDivInput>
+                                        <p>Valor R$ {products.price}</p>
+                                    </StyledDivText>
+                                </Card.Text>
+                                <Button variant='transparent' onClick={ ()=> handleRemove(products.id)}><i className="bi bi-trash-fill"></i></Button>
+                                <Button variant='transparent' onClick={() => handleCart(products)}><i class="bi bi-plus-square-fill"></i></Button>
+                                <Button variant='transparent' onClick={() => handleRemoveQty(products.qty) }><i class="bi bi-file-minus-fill"></i></Button>
+                            </Card.Body>
+                        </StyledCard>
+                    ))
+                    }
+
                 </StyledSubContainer>
             </StyledContainer>
             <div className='d-flex justify-content-center'>
                 <StyledCardTotal className='m-4'>
-                    <Card.Body>
-                        <StyledDivToralPrice>
-                            <p>Total</p>
-                            <p>R$ 1500,52</p>
-                        </StyledDivToralPrice>
-                    </Card.Body>
+                    {itensCart.length === 0 ? (
+                        ''
+                    )
+                        : (
+                                <Card.Body>
+                                    <StyledDivToralPrice>
+                                        <p>Total</p>
+                                        <p>R$ {Somovalores}</p>
+                                    </StyledDivToralPrice>
+                                </Card.Body>
+                        )
+                    }
+                        {/* {itensCart.length === 0 ? (
+                            ''
+                        )
+                            : (
+                                <Button onClick={handlePedido}>Finalizar Pedido</Button>
+                            )
+                        } */}
                 </StyledCardTotal>
+                
             </div>
         </Layout>
     )
@@ -63,12 +113,12 @@ const StyledContainer = styled.div`
 `
 const StyledCard = styled(Card)`
     margin: 1rem;
-    width: 80%;
+    width: 300px;
     @media(min-width: 576px) {
         width: 375px;
     }
 `
-const StyledCardTotal = styled(Card) `
+const StyledCardTotal = styled(Card)`
    @media (min-width: 992px) {
         width: 850px;
     }
@@ -93,7 +143,7 @@ const StyledDivText = styled.div`
         align-items: center;
     }
 `
-const StyledInput = styled.input`
+const StyledQty = styled.div`
     width: 50px;
     border: solid;
     height: 35px;
@@ -112,4 +162,7 @@ const StyledDivToralPrice = styled.div`
     display: flex;
     font-size: 22px;
     justify-content: space-evenly;
+`
+const StyledI = styled.i`
+    
 `

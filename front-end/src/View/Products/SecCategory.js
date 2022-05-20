@@ -5,13 +5,15 @@ import { selectUser } from "../../store/Users/user.selctor"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 import { toast } from "react-toastify"
-import { delProducs } from "../../services/products.service"
+import { delProducs, getProductById } from "../../services/products.service"
 import { useState } from "react"
+import { useDispatch } from "react-redux"
 
 
 function SecCategory({ product, onDelete }) {
     const user = useSelector(selectUser)
     const [dataClass, setDataClass] = useState()
+    const dispatch = useDispatch()
     const handleClick = (products) => {
         setDataClass(products)
     }
@@ -26,11 +28,26 @@ function SecCategory({ product, onDelete }) {
             toast.error('Falha ao deletar classe. Tente Novamente!')
         }
     }
+    const handleCart = (products) => {
+        const productsArry = {
+            ...products,
+            qty: 1
+        }
+        const action = {
+            type: 'ADD_TO_CART',
+            payload: productsArry
+        }
+        dispatch(action)
+        toast.success(`${products.name} adicionado com sucesso!`, {
+            theme: "dark"
+        })
+    }
+
     return (
         <section className="SecCategory " >
             {product?.map(products => (
-                <>
-                    <Card className='CardConteiner bg-transparent' key={products.id}>
+                <div key={products.id}>
+                    <Card className='CardConteiner bg-transparent'>
                         <Card.Img variant="top" src={products.image} alt='a' />
                         <Card.Body className='CardConteiners'>
                             <Card.Title>{products.name}</Card.Title>
@@ -40,9 +57,9 @@ function SecCategory({ product, onDelete }) {
                             <div className="text-center DivItensSpan">
                                 <span className="SpanQTY">{products.qty} Quantidade</span>
                                 <span>R${products.price}</span>
-                                {user && user.type === UserType.usuario 
+                                {user && user.type === UserType.usuario
                                     &&
-                                    <ButtonStyle>
+                                    <ButtonStyle onClick={() => handleCart(products)}>
                                         <i class="bi bi-bag-check-fill"></i>
                                     </ButtonStyle>
                                 }
@@ -61,8 +78,6 @@ function SecCategory({ product, onDelete }) {
                         }
 
                     </Card>
-
-                    {/* Modal */}
                     <Modal show={dataClass}>
                         <Modal.Header >
                             <Modal.Title>Deseja realmente excluir?</Modal.Title>
@@ -76,7 +91,7 @@ function SecCategory({ product, onDelete }) {
                             </Button>
                         </Modal.Footer>
                     </Modal>
-                </>
+                </div>
             ))}
 
         </section>
