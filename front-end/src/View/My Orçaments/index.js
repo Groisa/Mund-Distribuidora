@@ -5,11 +5,11 @@ import styled from "styled-components"
 import { useDispatch, useSelector } from 'react-redux'
 import { productSelect } from '../../store/ProductsCart/products.selector'
 import { toast } from 'react-toastify'
-import { useState } from 'react'
+import { selectUser } from '../../store/Users/user.selctor'
 
 function MyOrçaments() {
-    const [formQty, setFormQty] = useState()
     const itensCart = useSelector(productSelect)
+    const user = useSelector(selectUser)
     const dispatch = useDispatch()
     const Somovalores = itensCart.reduce((accumuletor, correntValue) => {
         accumuletor += correntValue.price * correntValue.qty
@@ -25,10 +25,6 @@ function MyOrçaments() {
             theme: "dark"
         })
         
-    }
-    const handlePedido = () => {
-        const newPedido = itensCart
-        console.log(newPedido)
     }
     const handleCart = (products) => {
         const productsArry = {
@@ -48,6 +44,27 @@ function MyOrçaments() {
         }
         dispatch(action)
     }
+    const sendWhastApp = () => {
+        let text = 'Confira o pedido abaixo:\n---------------------------------------\n\n'
+        const subdomain = window.innerWidth > 768 ? 'web' : 'api'
+        itensCart.forEach(products => {
+                text += `*${products.name}*\n` 
+                text += `Quantidade : ${products.qty}\n`
+                text += `Valor : ${products.price}`
+                text += '\n---------------------------------------\n\n'    
+            })
+                text += '*Dados do Cliente*\n\n'
+                text += `Nome: ${user.nome}\n`
+                text += `Endereço: ${user.endereço}\n`
+                text += `CEP: ${user.cep}\n\n`
+                text += '\n---------------------------------------\n\n'  
+                text += `*Valor* *Total* : ${Somovalores} `  
+            window.open(`https://${subdomain}.whatsapp.com/send?phone=5531983082389&text=${encodeURI(text)}`, '_blank')
+    }
+    // productscart.forEach(product => {
+    //     text += `*${product.qty}x ${product.name}* - ${product.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}\n`
+    //     total += product.price * product.qty
+    // })
     return (
         <Layout>
             <StyledContainer>
@@ -65,7 +82,7 @@ function MyOrçaments() {
                                             <p>Quantidade</p>
                                            <StyledQty>{products.qty}</StyledQty>
                                         </StyledDivInput>
-                                        <p>Valor R$ {products.price}</p>
+                                        <p>Valor R$ {products.price*products.qty}</p>
                                     </StyledDivText>
                                 </Card.Text>
                                 <Button variant='transparent' onClick={ ()=> handleRemove(products.id)}><i className="bi bi-trash-fill"></i></Button>
@@ -92,13 +109,13 @@ function MyOrçaments() {
                                 </Card.Body>
                         )
                     }
-                        {/* {itensCart.length === 0 ? (
+                        {itensCart.length === 0 ? (
                             ''
                         )
                             : (
-                                <Button onClick={handlePedido}>Finalizar Pedido</Button>
+                                <Button onClick={sendWhastApp}>Finalizar Pedido</Button>
                             )
-                        } */}
+                        }
                 </StyledCardTotal>
                 
             </div>
@@ -162,7 +179,4 @@ const StyledDivToralPrice = styled.div`
     display: flex;
     font-size: 22px;
     justify-content: space-evenly;
-`
-const StyledI = styled.i`
-    
 `
