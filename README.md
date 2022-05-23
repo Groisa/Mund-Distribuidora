@@ -21,7 +21,6 @@ os admins, conseguirão fazer o CRUD dos itens, e ao final do mês, terão uma r
 - Catálogo Online
 - Login Admin/Clientes
 - Cadastro
-- Imput de Pesquisa
 
 ## Instalação
 
@@ -40,6 +39,7 @@ os admins, conseguirão fazer o CRUD dos itens, e ao final do mês, terão uma r
 - Style Components
 - Redux
 - React-toastify
+- React Router Dom
 
 ## Criado por
 Gabriel Eduardo 
