@@ -29,7 +29,6 @@ function HomePage() {
           </div>
           <Carrosel/>
       </section>
-
     </Layout>
   )
 }

@@ -4,33 +4,38 @@ import CardDivComponet from "../../Componentes/Cards/CardDivComponet";
 import Layout from "../../Componentes/layout";
 import Loading from "../../Componentes/Loading";
 import BoxClass from '../../imagens/boxClasses.png'
+import { getClass } from "../../services/classes.service";
 import './index.css'
 
-function ProductsClass () {
+function ProductsClass() {
     const [productsclass, setProductsclass] = useState([])
     const [loading, setLoading] = useState(true)
-    const [erroCatch, seterroCatch] =useState()
-    useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}/items`)
-        .then((response) => response.json())
-        .then((data) => {
+    const [erroCatch, seterroCatch] = useState()
+    const fetchClass = async () => {
+        try {
+            const data = await getClass()
             setProductsclass(data)
-        })
-        .finally(() => {
             setLoading(false)
-        })
-        .catch (() => {
-            seterroCatch('Falha ao buscar classes de produtos. Tente Novamente')
-        })
+        }
+         catch (err) {
+            const message = err.message === 'Response not ok.'
+            ? '404'
+            : 'Falha ao buscar informações do curso. Recarregue a página.'
+            seterroCatch(message)
+          setLoading(false)
+        }
+    } 
+    useEffect(() => {
+        fetchClass()
     }, [])
     return (
         <Layout>
             <div className="CompanentBox">
-                <img src={BoxClass} alt='a'/>
+                <img src={BoxClass} alt='a' />
             </div>
             <h1 className="text-center"> Categorias </h1>
             {loading && (
-                <Loading/>
+                <Loading />
             )}
             {erroCatch && (
                 <Alert variant="primary">{erroCatch}</Alert>
@@ -38,7 +43,7 @@ function ProductsClass () {
 
             {productsclass.map(products => (
                 <div className="ProductsCategory" key={products.id}>
-                    <CardDivComponet products={products}/>
+                    <CardDivComponet products={products} onDelete={fetchClass}/>
                 </div>
             ))}
         </Layout>

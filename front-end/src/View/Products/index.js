@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import { Alert, Container } from "react-bootstrap";
 import Loading from "../../Componentes/Loading";
 import NotFound from "../NotFound";
-import FormItens from "./FormAddItens";
+import { getProducts } from "../../services/products.service";
 
 
 function Products() {
@@ -17,11 +17,7 @@ function Products() {
     const [errorMsg, setErrorMsg] = useState()
     const fetchProducts = useCallback(async () => {
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/items/${id}?_embed=products`)
-            if (!response.ok){
-                throw new Error('Response not Ok')
-            }
-            const data = await response.json()
+            const data = await getProducts(id)
             setProductsPrimary(data)
             setLoading(false)
         }catch (err) {
@@ -51,7 +47,7 @@ function Products() {
                 <Alert variant="danger" className="mt-3">{errorMsg}</Alert>
                 ) : (
                 <>
-                   <SecCategory product={productsPrimary.products}/>
+                   <SecCategory product={productsPrimary.products} onDelete={fetchProducts}/>
                 </>
                 )}
             </Container>
