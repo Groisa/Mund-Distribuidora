@@ -1,7 +1,3 @@
-import { getStoregeItem, setStoregeItem } from "../../services/storege.service"
-
-const user = JSON.parse(getStoregeItem('user'))
-
 export function productsCartReducer (state = [] , action) {
     if (action.type === 'ADD_TO_CART' ) {
         const newCart = [ ...state ]
@@ -26,14 +22,10 @@ export function productsCartReducer (state = [] , action) {
         const qtyFound = newCart.findIndex (
             product => product.qty === action.payload
         )
-        const qtyFilter = newCart.filter( 
-            product => product.qty === action.payload
-        )
         if(qtyFound !== -1 ) {
             newCart[qtyFound].qty--
             return newCart 
         }
-        
     }
     return state
 }

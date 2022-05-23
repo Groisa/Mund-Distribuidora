@@ -61,10 +61,6 @@ function MyOrçaments() {
                 text += `*Valor* *Total* : ${Somovalores} `  
             window.open(`https://${subdomain}.whatsapp.com/send?phone=5531983082389&text=${encodeURI(text)}`, '_blank')
     }
-    // productscart.forEach(product => {
-    //     text += `*${product.qty}x ${product.name}* - ${product.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}\n`
-    //     total += product.price * product.qty
-    // })
     return (
         <Layout>
             <StyledContainer>
@@ -85,7 +81,7 @@ function MyOrçaments() {
                                         <p>Valor R$ {products.price*products.qty}</p>
                                     </StyledDivText>
                                 </Card.Text>
-                                <Button variant='transparent' onClick={ ()=> handleRemove(products.id)}><i className="bi bi-trash-fill"></i></Button>
+                                <Button variant='transparent' onClick={()=> handleRemove(products.id)}><i className="bi bi-trash-fill"></i></Button>
                                 <Button variant='transparent' onClick={() => handleCart(products)}><i class="bi bi-plus-square-fill"></i></Button>
                                 <Button variant='transparent' onClick={() => handleRemoveQty(products.qty) }><i class="bi bi-file-minus-fill"></i></Button>
                             </Card.Body>

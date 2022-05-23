@@ -7,6 +7,13 @@ export const getProducts = async (productid) => {
     }
     return response.json()
 } 
+export const getProductsAll = async () => {
+    const response = await fetch(`${urlApi}/products`)
+    if (!response.ok) {
+        throw new Error('Response not Ok')
+    }
+    return response.json()
+}
 export const delProducs = async (productsId) => {
     const response = await fetch (`${urlApi}/products/${productsId}`, {
         method: 'DELETE',

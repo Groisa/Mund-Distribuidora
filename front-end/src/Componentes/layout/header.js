@@ -2,8 +2,6 @@ import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import Logo from '../../imagens/logo.png'
 import Home from '../../imagens/home.png'
 import Product from '../../imagens/produtos.png'
-import Cart from '../../imagens/Cart3.png'
-import Use from '../../imagens/Solid.png'
 import ApenasLetra from "../../imagens/apenasLetra.png"
 import { Link, useNavigate } from "react-router-dom";
 import { Logout } from "../../services/Users.service";
@@ -13,6 +11,7 @@ import { selectUser } from "../../store/Users/user.selctor";
 import { UserType } from "../../Constantes/typeUser";
 import { toast } from "react-toastify";
 import styled from "styled-components"
+import { getProductsAll } from "../../services/products.service";
 
 function Header() {
   const navigation = useNavigate()
@@ -24,6 +23,14 @@ function Header() {
     navigation('/')
     toast.success('Deslogado com sucesso!')
   }
+  // const handleChange = async (e) => {
+  //   e.preventDefault()
+  //   const { value } = e.target
+  //   const data = await getProductsAll()
+  //   console.log('data',data)
+  //   const filtro = data.filter((product) => product.starsWith('M'))
+  //   console.log('filtro',filtro)
+  // }
   return (
     <div className="HeaderTeste">
       <Navbar expand={false}>
@@ -43,7 +50,11 @@ function Header() {
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
                 {/* Input */}
-                <input placeholder='Pesquisa...' className="InputPesqHeader" />
+                {/* <input 
+                placeholder='Pesquisa...' 
+                className="InputPesqHeader" 
+                onChange={handleChange}
+                /> */}
                 {/* links nav */}
                 <Nav.Link as={Link} to='/'>
                   <div className="NavDivContainer">
